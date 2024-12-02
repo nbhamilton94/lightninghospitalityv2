@@ -1,0 +1,29 @@
+.THIS .slds-input__icon{
+   margin-top: -.8rem;
+}
+
+.THIS {
+   padding: 0 10px;
+}
+
+.THIS .slds-form-element__label {
+    color:black;
+    font-family: Helvetica;
+}
+
+.THIS .searchbutton {
+    background-color: #4fa5a0;
+    border-color: #4fa5a0;
+    color:white;
+    width:100%;
+}
+
+.THIS .datefield {
+    /*width: 300px;
+    <!--margin-bottom: 10px;*/
+}
+
+.THIS .search-button-container {
+    display:grid;
+    align-items: end;
+}

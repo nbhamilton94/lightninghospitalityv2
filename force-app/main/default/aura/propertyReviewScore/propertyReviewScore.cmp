@@ -1,0 +1,71 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="averageReviewScore" type="Decimal"/>
+    
+    <!--
+    <aura:attribute name="serviceScore" type="Decimal"/>
+    <aura:attribute name="locationScore" type="Decimal"/>
+    <aura:attribute name="valueOfMoneyScore" type="Decimal"/>
+    <aura:attribute name="cleanlinessScore" type="Decimal"/>
+    <aura:attribute name="numberOfReviews" type="Integer"/>
+    -->
+    
+    <!-- 
+  What information do I need to pass in here? 
+  Service Score, Location Score, Value for Money Score, Cleanliness Score, Overall Score
+  -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_2-of-12 overall-score-container">
+            <div class="slds-col slds-size_12-of-12 overall-score-styling">{!v.averageReviewScore}</div>
+            <div class="slds-col slds-size_12-of-12 overall-score-outof">out of 5.0</div>
+            <div class="slds-col slds-size_12-of-12 center-display-stars">
+                <c:displayReviewStars reviewScore="{!v.averageReviewScore}"/> 
+            </div>       
+        </div>
+        
+        <div class="slds-col slds-size_5-of-12">
+            <div class="slds-col slds-size_12-of-12">Service</div>
+            <div class="slds-col slds-size_11-of-12">   
+                <div class="slds-progress-bar component-styling-bar-container" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="" role="progressbar">
+                    <span class="slds-progress-bar__value slds-progress-bar__value_success" style="width:80%">
+                        
+                    </span>
+                </div>
+				               
+            </div>
+            <div class="slds-col slds-size_1-of-12 component-styling-score">4.4</div>
+            <div class="slds-col slds-size_12-of-12">Location</div>
+            <div class="slds-col slds-size_11-of-12">
+                <div class="slds-progress-bar component-styling-bar-container" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="" role="progressbar">
+                    <span class="slds-progress-bar__value slds-progress-bar__value_success" style="width:80%">
+                        
+                        
+                        
+                    </span>
+                </div>        
+            </div>
+            <div class="slds-col slds-size_1-of-12 component-styling-score">4.5</div>
+        </div>
+        
+        <div class="slds-col slds-size_5-of-12">
+            <div class="slds-col slds-size_12-of-12">Value for Money</div>
+            <div class="slds-col slds-size_11-of-12">
+                <div class="slds-progress-bar component-styling-bar-container" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="" role="progressbar">
+                    <span class="slds-progress-bar__value slds-progress-bar__value_success" style="width:80%">
+                        
+                    </span>
+                </div>        
+            </div>
+            <div class="slds-col slds-size_1-of-12 component-styling-score">4.8</div>
+            <div class="slds-col slds-size_12-of-12">Cleanliness</div>
+            <div class="slds-col slds-size_11-of-12">
+                <div class="slds-progress-bar component-styling-bar-container" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="" role="progressbar">
+                    <span class="slds-progress-bar__value slds-progress-bar__value_success" style="width:80%">
+                        
+                    </span>
+                </div>        
+            </div>
+            <div class="slds-col slds-size_1-of-12 component-styling-score">5.0</div>        
+        </div>
+    </div>
+    
+</aura:component>

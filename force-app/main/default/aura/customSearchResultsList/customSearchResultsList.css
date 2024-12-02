@@ -1,0 +1,8 @@
+.THIS .custom-map-container {
+    height: 89vh;
+    /*z-index: -1;*/
+}
+
+.THIS .search-results-y-overflow {
+    overflow-y: scroll;
+}

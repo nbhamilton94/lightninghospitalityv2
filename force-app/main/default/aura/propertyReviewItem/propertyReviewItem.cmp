@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+	<aura:attribute name="firstName" type="String" />
+	<aura:attribute name="lastName" type="String" />    
+    <aura:attribute name="createdDate" type="Date" />
+    <aura:attribute name="reviewDescription" type="String" />
+    <aura:attribute name="reviewScore" type="Integer" />
+    <aura:attribute name="photoUrl" type="String" />
+
+    
+    <div class="slds-grid">
+        <div class="slds-col slds-grid slds-size_12-of-12">
+            <div  class="slds-col slds-size_2-of-12 image-class">
+                <img style="width: 100px; height: 100px;" src="https://static.vecteezy.com/system/resources/previews/036/280/651/non_2x/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg"/>
+            </div>
+            <div class="slds-col slds-grid slds-wrap slds-size_10-of-12">
+                <div class="slds-col slds-size_12-of-12">
+                    John Smith <c:displayReviewStars reviewScore="5"/>
+                </div>
+                <div class="slds-col slds-size_12-of-12">
+                    June 14, 2024
+                </div>
+                <div class="slds-col slds-size_12-of-12">
+                    Bday weekend was great with this Air bnb! Location made it very easy to go around the local Austin area. Will definitely strongly consider this Air bnb again for the future:)
+                </div>                
+            </div>
+        </div> 
+    </div>
+</aura:component>

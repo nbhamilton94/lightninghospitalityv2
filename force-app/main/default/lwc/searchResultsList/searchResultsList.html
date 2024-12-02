@@ -1,0 +1,135 @@
+<template>
+    <div class="slds-grid search-results-container">
+        <div class="slds-col slds-size_6-of-12 search-results-y-overflow slds-p-around_medium">
+            <div class="">
+                <h1>Search Results</h1>
+                <c-search-page-search-header check-in-date={checkInDate} check-out-date={checkOutDate}></c-search-page-search-header>
+                <template lwc:if={availablePropertiesNotEmpty}>
+                    <template for:each ={availableProperties} for:item="availableProperty">
+                        <c-search-result-item 
+                                           
+                                            key={availableProperty.property.Id} 
+                                            review-score={availableProperty.averageReviewScore} 
+                                            number-of-reviews={availableProperty.numberOfReviews} 
+                                            nightly-rate={availableProperty.averageNightlyRate} 
+                                            record-id={availableProperty.property.Id}
+                                            cover-url={availableProperty.images.coverImageUrl}
+                                            property-name={availableProperty.property.Nickname__c}
+                                            onpropertyselect={navigateToPropertyPage}
+                                            number-of-bedrooms={availableProperty.property.Number_of_Bedrooms__c}
+                                            number-of-bathrooms={availableProperty.property.Number_of_Bathrooms__c}
+                                            maximum-guests={availableProperty.property.Maximum_Guests__c}                                            
+                                            city={availableProperty.address.City}
+                                            length-of-stay={lengthOfStay}
+                                            style="cursor:pointer">
+                    
+                        </c-search-result-item>
+                        <c-search-result-item 
+                                           
+                                            key={availableProperty.property.Id} 
+                                            review-score={availableProperty.averageReviewScore} 
+                                            number-of-reviews={availableProperty.numberOfReviews} 
+                                            nightly-rate={availableProperty.averageNightlyRate} 
+                                            record-id={availableProperty.property.Id}
+                                            cover-url={availableProperty.images.coverImageUrl}
+                                            property-name={availableProperty.property.Nickname__c}
+                                            onpropertyselect={navigateToPropertyPage}
+                                            number-of-bedrooms={availableProperty.property.Number_of_Bedrooms__c}
+                                            number-of-bathrooms={availableProperty.property.Number_of_Bathrooms__c}
+                                            maximum-guests={availableProperty.property.Maximum_Guests__c}                                            
+                                            city={availableProperty.address.City}
+                                            length-of-stay={lengthOfStay}
+                                            style="cursor:pointer">
+                    
+                        </c-search-result-item>
+                        <c-search-result-item 
+                                           
+                                            key={availableProperty.property.Id} 
+                                            review-score={availableProperty.averageReviewScore} 
+                                            number-of-reviews={availableProperty.numberOfReviews} 
+                                            nightly-rate={availableProperty.averageNightlyRate} 
+                                            record-id={availableProperty.property.Id}
+                                            cover-url={availableProperty.images.coverImageUrl}
+                                            property-name={availableProperty.property.Nickname__c}
+                                            onpropertyselect={navigateToPropertyPage}
+                                            number-of-bedrooms={availableProperty.property.Number_of_Bedrooms__c}
+                                            number-of-bathrooms={availableProperty.property.Number_of_Bathrooms__c}
+                                            maximum-guests={availableProperty.property.Maximum_Guests__c}                                            
+                                            city={availableProperty.address.City}
+                                            length-of-stay={lengthOfStay}
+                                            style="cursor:pointer">
+                    
+                        </c-search-result-item>
+                        <c-search-result-item 
+                                           
+                                            key={availableProperty.property.Id} 
+                                            review-score={availableProperty.averageReviewScore} 
+                                            number-of-reviews={availableProperty.numberOfReviews} 
+                                            nightly-rate={availableProperty.averageNightlyRate} 
+                                            record-id={availableProperty.property.Id}
+                                            cover-url={availableProperty.images.coverImageUrl}
+                                            property-name={availableProperty.property.Nickname__c}
+                                            onpropertyselect={navigateToPropertyPage}
+                                            number-of-bedrooms={availableProperty.property.Number_of_Bedrooms__c}
+                                            number-of-bathrooms={availableProperty.property.Number_of_Bathrooms__c}
+                                            maximum-guests={availableProperty.property.Maximum_Guests__c}                                            
+                                            city={availableProperty.address.City}
+                                            length-of-stay={lengthOfStay}
+                                            style="cursor:pointer">
+                    
+                        </c-search-result-item>
+                        <c-search-result-item 
+                                           
+                                            key={availableProperty.property.Id} 
+                                            review-score={availableProperty.averageReviewScore} 
+                                            number-of-reviews={availableProperty.numberOfReviews} 
+                                            nightly-rate={availableProperty.averageNightlyRate} 
+                                            record-id={availableProperty.property.Id}
+                                            cover-url={availableProperty.images.coverImageUrl}
+                                            property-name={availableProperty.property.Nickname__c}
+                                            onpropertyselect={navigateToPropertyPage}
+                                            number-of-bedrooms={availableProperty.property.Number_of_Bedrooms__c}
+                                            number-of-bathrooms={availableProperty.property.Number_of_Bathrooms__c}
+                                            maximum-guests={availableProperty.property.Maximum_Guests__c}                                            
+                                            city={availableProperty.address.City}
+                                            length-of-stay={lengthOfStay}
+                                            style="cursor:pointer">
+                    
+                        </c-search-result-item>
+                        <c-search-result-item 
+                                           
+                                            key={availableProperty.property.Id} 
+                                            review-score={availableProperty.averageReviewScore} 
+                                            number-of-reviews={availableProperty.numberOfReviews} 
+                                            nightly-rate={availableProperty.averageNightlyRate} 
+                                            record-id={availableProperty.property.Id}
+                                            cover-url={availableProperty.images.coverImageUrl}
+                                            property-name={availableProperty.property.Nickname__c}
+                                            onpropertyselect={navigateToPropertyPage}
+                                            number-of-bedrooms={availableProperty.property.Number_of_Bedrooms__c}
+                                            number-of-bathrooms={availableProperty.property.Number_of_Bathrooms__c}
+                                            maximum-guests={availableProperty.property.Maximum_Guests__c}                                            
+                                            city={availableProperty.address.City}
+                                            length-of-stay={lengthOfStay}
+                                            style="cursor:pointer">
+                    
+                        </c-search-result-item>
+                    </template>
+                </template>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-size_6-of-12 map-column">
+            <div class="custom-map-container">
+                <lightning-map map-markers={mapMarkers}
+                               markers-title={markersTitle}
+                               selected-marker-value={selectedMarkerValue}
+
+                               zoom-level={zoomLevel}
+                               style="height: 100%;">
+                </lightning-map>
+            </div>
+        </div>
+    </div>
+        
+</template>

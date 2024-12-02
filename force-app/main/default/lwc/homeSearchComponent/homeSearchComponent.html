@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-form-element slds-lookup slds-var-p-around_medium search-container" data-select="single">
+        <div class="slds-form-element__control">
+            <div class="slds-grid slds-gutters slds-wrap">
+                <div class="slds-col slds-size_1-of-3 input-wrapper">
+                    <lightning-combobox name="city" 
+                                      label="Where can we take you?" 
+                                      required="true" 
+                                      value={selectedCity} 
+                                      options={cityOptions} 
+                                      onchange={handleFieldChange}>
+                    </lightning-combobox>
+                </div>                
+                <div class="slds-col slds-size_1-of-3 input-wrapper">
+                    <lightning-input value={checkInDate} 
+                                   type="date" 
+                                   label="Check-in Date" 
+                                   name="checkindate" 
+                                   required="true" 
+                                   onchange={handleFieldChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-3 input-wrapper">
+                    <lightning-input value={checkOutDate} 
+                                   type="date" 
+                                   label="Check-out Date" 
+                                   name="checkoutdate" 
+                                   required="true" 
+                                   onchange={handleFieldChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_3-of-3 slds-var-p-top_medium">
+                    <lightning-button class="searchbutton" 
+                                    label="Find Properties" 
+                                    onclick={handleClick}>
+                    </lightning-button>
+                </div>                
+            </div>
+
+
+            
+            <template if:true={error}>
+                <div class="error-container">
+                    <div class="slds-text-color_error">{error}</div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

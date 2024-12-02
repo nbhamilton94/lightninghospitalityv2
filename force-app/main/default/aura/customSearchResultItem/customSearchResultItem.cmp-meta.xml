@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>custom lightning component that displays a single record. In the case of my website, show the unit that he user booked.</description>
+</AuraDefinitionBundle>

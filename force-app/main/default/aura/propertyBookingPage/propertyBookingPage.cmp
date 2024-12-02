@@ -1,0 +1,141 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" controller="CustomSearchController">
+    <aura:attribute name="selectedProperty" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="amenities" type="List"/>
+    <aura:attribute name="body" type="Aura.Component[]"/>
+    
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="markersTitle" type="String" />
+    <aura:attribute name="selectedMarkerValue" type="String" default="France1" />
+    <aura:attribute name="zoomLevel" type="Integer" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initProperty}"/>    
+    
+    <div class="slds-grid slds-gutters slds-wrap" style="">
+        <div class="slds-col slds-size_12-of-12">
+            <div>
+                <h1>{!v.selectedProperty.property.Nickname__c}</h1>                
+            </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <div>
+                <lightning:icon iconName="utility:checkin" size="small" /> Hyde Park Square - {!v.selectedProperty.address.City}
+            </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <c:displayReviewStars reviewScore="{!v.selectedProperty.averageReviewScore}"/> {!v.selectedProperty.numberOfReviews} Reviews
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning:layout>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href=""><h2>Overview</h2></a></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href="#gallery"><h2>Gallery</h2></a></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href="#location"><h2>Location</h2></a></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href="#reviews"><h2>Reviews</h2></a></div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        <div class="slds-col slds-size_12-of-12 gray-background">
+            {!v.selectedProperty.property.Maximum_Guests__c} Guests | {!v.selectedProperty.property.Number_of_Bedrooms} Beds | {!v.selectedProperty.property.Number_of_Bathrooms__c} Baths
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12 gray-background">
+            Cancellation Policy: (Policy Goes Here)
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12">
+            {!v.selectedProperty.property.Property_Description__c}
+            <h2>Amenties</h2>
+        </div>
+   		
+        <aura:iteration items="{!v.amenities}" var="amenity">
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:icon class="lhds-default" iconName="utility:check" size="small" /> {! ' ' + amenity.Amenity_Link__c }
+            </div>       
+        </aura:iteration>
+        
+        
+        <div class="slds-col slds-size_12-of-12">
+            <h2 id="gallery" aura:id="div1">Gallery</h2>
+            <!--
+            <div class="slds-carousel">
+                <div class="slds-carousel__stage">
+                    
+                    <div class="slds-carousel__panels" style="transform:translateX(0%)">
+                        
+                        <div id="content-id-01" class="slds-carousel__panel" aria-hidden="false" role="tabpanel" aria-labelledby="indicator-id-01" tabindex="-1">
+                            <img style="width:150px; height:150px;" src="https://norman-dev-ed.develop.my.site.com/lightninghospitality/s/sfsites/c/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&amp;versionId=068aj000003z27JAAQ"/>
+                            <img style="width:150px; height:150px;" src="https://norman-dev-ed.develop.my.site.com/lightninghospitality/s/sfsites/c/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&amp;versionId=068aj000003z27JAAQ"/>
+                            <img style="width:150px; height:150px;" src="https://norman-dev-ed.develop.my.site.com/lightninghospitality/s/sfsites/c/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&amp;versionId=068aj000003z27JAAQ"/>
+                        </div>
+                        <div id="content-id-02" class="slds-carousel__panel" aria-hidden="true" role="tabpanel" aria-labelledby="indicator-id-02" tabindex="0">
+                        
+                        </div>
+                    </div>
+                    <ul class="slds-carousel__indicators" role="tablist">
+                        
+                        <li class="slds-carousel__indicator" role="presentation">
+                            <a id="indicator-id-01" class="slds-carousel__indicator-action" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="content-id-01" title="Visit App Exchange tab"></a>
+                        </li>
+                        <li class="slds-carousel__indicator" role="presentation">
+                            <a id="indicator-id-02" class="slds-carousel__indicator-action slds-is-active" href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="content-id-02" title="Click to Customize tab"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+            <div class="slds-carousel">
+                <div class="slds-carousel__stage">
+                    
+                 
+                 <div aura:id="carousel2" class="slds-carousel__panels" style="transform:translateX(0%)">{!v.body}</div>
+
+                    
+                </div>
+                <div class="carousel__buttons">
+                    <lightning:buttonIcon iconName="utility:chevronleft"  alternativeText="Settings" title="Settings" onclick="{!c.handleLeftClick}"/>       	
+                    <lightning:buttonIcon iconName="utility:chevronright"  alternativeText="Settings" title="Settings" onclick="{!c.handleRightClick}"/>
+                </div>
+
+            </div>
+            
+            
+	
+        </div>
+
+        <div class="slds-col slds-size_12-of-12">
+            <h2 id="location">Location</h2>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning:map 
+                           mapMarkers="{! v.mapMarkers }"
+                           markersTitle="{!v.markersTitle}"
+                           selectedMarkerValue="{!v.selectedMarkerValue}"
+                           onmarkerselect="{!c.handleMarkerSelect}"
+                           zoomLevel="{!v.zoomLevel}" />
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <h2 id="reviews">Reviews ({!v.selectedProperty.numberOfReviews})</h2>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <c:propertyReviewScore averageReviewScore="{!v.selectedProperty.averageReviewScore}"/>
+        </div>        
+        
+        
+    </div>
+    <div class="slds-grid slds-gutters" style="">
+        <div class="slds-col slds-size_12-of-12">
+            <aura:iteration items="{!v.selectedProperty.property.Reviews__r}" var="review">
+                <!--<div>  {!review.Comments__c} </div>-->
+                <c:propertyReviewItem/>
+            </aura:iteration>
+        </div>     
+    </div>
+    
+     
+</aura:component>

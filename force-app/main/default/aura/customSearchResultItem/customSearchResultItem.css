@@ -1,0 +1,59 @@
+.THIS .results-photo {
+    width: 250px;
+    height: 170px;
+    float: left;
+}
+
+.THIS .listing-info {
+    height: 170px;
+    float: right;
+    /*
+    padding-top: 2%;
+    margin-left: 10%;
+    margin-right: 4%;
+    padding-left: 27%;
+  */
+}
+
+.THIS .rating {
+    color: #e3e33a;
+
+
+}
+
+.THIS .rating-section {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.THIS .beds-baths-info {
+    padding-top: 5px;
+}
+
+.THIS .city-label {
+    float:right;
+}
+
+.THIS .listing-info {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;    
+}
+
+.THIS .pricing-badge {
+    transform: rotate(45deg);
+    position: absolute;
+    right: -64px;
+    top: 22px;
+    text-align: center;
+    width: 200px;
+    font-size: 12.5px;
+    margin: 0;
+    z-index: 999;
+    font-weight: 500;
+    line-height: 28px;
+	background-color:#54ba1d;
+    
+}

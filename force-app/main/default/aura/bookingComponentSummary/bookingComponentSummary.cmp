@@ -1,0 +1,66 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="checkInDate" type="Date" default="2024-09-11" />
+    <aura:attribute name="checkOutDate" type="Date" default="2024-10-11" />
+    <aura:attribute name="guests" type="Integer" />
+    <aura:attribute name="nightlyRate" type="Decimal" default="75.23"/>
+    <aura:attribute name="cleaningFee" type="Integer" default="80"/>
+    <aura:attribute name="numberOfNights" type="Integer" default="1"/>
+    <aura:attribute name="taxes" type="Decimal" default="64.23"/>
+    <aura:attribute name="total" type="Decimal" default="123.45"/>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_6-of-12">
+			<p>Check-in Date</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>{!v.checkOutDate}</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>Check-out Date</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>{!v.checkOutDate}</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>Guests</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>{!v.guests}</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>Nightly Rate</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>${!v.nightlyRate}</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>Number of Nights</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>{!v.numberOfNights}</p>
+        </div>        
+        <div class="slds-col slds-size_6-of-12">
+			<p>Cleaning Fee</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>${!v.cleaningFee}</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>Taxes</p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+			<p>${!v.taxes}</p>
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+            <hr/>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <h3>Total</h3>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <h3>${!v.total}</h3>
+        </div>        
+		        
+    </div>    
+    
+</aura:component>

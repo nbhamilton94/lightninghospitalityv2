@@ -1,0 +1,76 @@
+/* Define component-wide variables */
+:host {
+    /* LWC Design System variables */
+    --lwc-labelColor: var(--colorTextInverse);
+    --lwc-colorTextLabel: var(--colorTextInverse);
+    
+    /* Custom variables */
+    --search-background: rgb(24, 24, 24);
+    --input-focus-color: #0076D3;
+}
+
+/* Style specific parts of lightning components */
+lightning-input::part(label),
+lightning-combobox::part(label) {
+    color: var(--colorTextInverse);
+    font-weight: bold;
+}
+
+lightning-input::part(input) {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--colorTextInverse);
+    border-color: transparent;
+}
+
+lightning-input::part(input):focus {
+    border-color: var(--input-focus-color);
+}
+
+/* Style the container using custom variable */
+.search-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+    border-color: transparent;
+    min-height: 200px;
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+    min-height: 100px;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+/* Style the button */
+.searchbutton {
+    --sds-c-button-neutral-color-background: var(--brandHeader, #4fa5a0);
+    --sds-c-button-neutral-color-background-hover: var(--brandHeader, #4fa5a0);
+    --sds-c-button-neutral-color-border: var(--brandHeader, #4fa5a0);
+    --sds-c-button-neutral-color-border-hover: var(--brandHeader, #4fa5a0);
+    --sds-c-button-text-color: var(--lwc-colorTextInverse);
+    --sds-c-button-text-color-hover: var(--lwc-colorTextInverse);
+}
+
+/* Style all form labels */
+lightning-combobox, lightning-input {
+    --lwc-colorTextLabel: white;
+    --lwc-colorTextFormLabel: white;
+}
+
+/* Style error messages */
+.error-container {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 8rem; /* Position after the button */
+}
+
+.slds-text-color_error {
+    color: rgb(255, 185, 185);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}

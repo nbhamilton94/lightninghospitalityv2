@@ -1,0 +1,23 @@
+.THIS .custom-input-icon{
+   margin-top: -.8rem;
+}
+
+.THIS {
+   padding: var(--lwc-spacingNone, 0) 10px;
+}
+
+.THIS .custom-label {
+    color: var(--colorTextBrandPrimary);
+    font-family: Helvetica;
+}
+
+.THIS .searchbutton {
+    background-color: var(--brandHeader, #4fa5a0);
+    border-color: var(--brandHeader, #4fa5a0);
+    color: var(--colorTextInverse);
+}
+
+.THIS .datefield {
+    width: 300px;
+    margin-bottom: 10px;
+}

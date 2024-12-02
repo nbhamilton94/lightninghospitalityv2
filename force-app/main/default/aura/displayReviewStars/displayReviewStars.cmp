@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="reviewScore" type="Decimal"/>
+    
+    
+    <span class="rating-section">
+        <aura:if isTrue="{!greaterthan(v.reviewScore, 4)}">
+            <span class="slds-text-heading_small rating"> ★★★★★  </span> 
+        </aura:if>
+        
+        <aura:if isTrue="{!and( lessthanorequal(v.reviewScore, 4) , greaterthan(v.reviewScore, 3))}">
+            <span class="slds-text-heading_small rating"> ★★★★  </span>
+        </aura:if>
+        
+        <aura:if isTrue="{!and( lessthanorequal(v.reviewScore,3), greaterthan(v.reviewScore, 2)) }">
+            <span class="slds-text-heading_small rating"> ★★★  </span> 
+        </aura:if>
+        
+        <aura:if isTrue="{! and(lessthanorequal(v.reviewScore,2), greaterthan(v.reviewScore, 1)) }">
+            <span class="slds-text-heading_small rating"> ★★  </span> 
+        </aura:if>
+        
+        <aura:if isTrue="{!lessthanorequal(v.reviewScore, 1)}">
+            <span class="slds-text-heading_small rating"> ★ </span>
+        </aura:if>                  
+    </span>                
+    
+</aura:component>

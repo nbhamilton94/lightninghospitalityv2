@@ -1,0 +1,44 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="checkInDate" type="Date" default="2024-09-11" />
+    <aura:attribute name="checkOutDate" type="Date" default="2024-10-11" />
+    <aura:attribute name="guests" type="Integer" />
+    <aura:attribute name="nightlyRate" type="Decimal" default="75.23"/>
+    <aura:attribute name="cleaningFee" type="Integer" default="80"/>
+    <aura:attribute name="numberOfNights" type="Integer" default="1"/>
+    <aura:attribute name="taxes" type="Decimal" default="64.23"/>
+    <aura:attribute name="total" type="Decimal" default="123.45"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initBookingComponentController}"/> 
+    
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_12-of-12">
+            <div class="slds-col slds-size_12-of-12"><h2> Booking </h2></div>
+            <div class="slds-col slds-size_12-of-12"><hr/></div>
+            <div class="slds-col slds-size_12-of-12">
+                <c:bookingComponentCalculator checkInDate="{!v.checkInDate}"
+                                              checkOutDate="{!v.checkOutDate}"
+                                              guests="{!v.guests}"/>
+                <button class="slds-button slds-button_brand max-width">Calculate</button>            
+            </div>            
+            
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12">
+            <div class="slds-col slds-size_12-of-12"><h2> Booking Summary</h2></div>
+            <div class="slds-col slds-size_12-of-12"><hr/>  </div>
+            <c:bookingComponentSummary checkInDate="{!v.checkInDate}"
+                                       checkOutDate="{!v.checkOutDate}"
+                                       guests="{!v.guests}"
+                                       nightlyRate="{!v.nightlyRate}"
+                                       numberOfNights="{!v.numberOfNights}"
+                                       cleaningFee="{!v.cleaningFee}"
+                                       taxes="{!v.taxes}"
+                                       total="{!v.total}"/>
+            <div class="slds-col slds-size_12-of-12">
+                <button class="slds-button slds-button_brand max-width">Request To Book</button>
+            </div>             
+        </div>
+        
+    </div>
+    
+</aura:component>

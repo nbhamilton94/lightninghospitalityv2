@@ -1,0 +1,52 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute type="list" name="availableProperties" />
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="markersTitle" type="String" />
+    <aura:attribute name="selectedMarkerValue" type="String" default="France1" />
+    <aura:attribute name="zoomLevel" type="Integer" />
+    <aura:attribute name="checkInDate" type="Date" default="" />
+    <aura:attribute name="checkOutDate" type="Date" default="" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <div class="slds-grid slds-gutters search-results-container" style="height: 89vh;">
+        <div class="slds-col slds-size_6-of-12 search-results-y-overflow">
+            <div class="">
+                <h1>Search Results</h1>
+                <c:customSearchResultsSearch checkInDate="{!v.checkInDate}" checkOutDate="{!v.checkOutDate}"/>
+                <aura:if isTrue="{!not(empty(v.availableProperties))}">
+                    
+                    <aura:iteration items="{!v.availableProperties}" var="availableProperty">
+                        <c:customSearchResultItem reviewScore="{!availableProperty.averageReviewScore}" 
+                                                  numberOfReviews="{!availableProperty.numberOfReviews}" 
+                                                  nightlyRate="{!availableProperty.averageNightlyRate}" 
+                                                  recordId="{!availableProperty.property.Id}"
+                                                  coverUrl="{!availableProperty.images.coverImageUrl}"
+                                                  />
+
+                    </aura:iteration>
+                    
+                    
+                    <aura:set attribute="else">
+                        No available properties
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-size_6-of-12">
+            <div class="custom-map-container">
+                
+                
+                <lightning:map 
+                               mapMarkers="{! v.mapMarkers }"
+                               markersTitle="{!v.markersTitle}"
+                               selectedMarkerValue="{!v.selectedMarkerValue}"
+                               onmarkerselect="{!c.handleMarkerSelect}"
+                               zoomLevel="{!v.zoomLevel}" />    
+            </div>
+        </div>
+        
+        
+    </div>
+</aura:component>

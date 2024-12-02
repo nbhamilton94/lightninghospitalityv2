@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="CustomSearchController">
+    <!-- Version 1 will have just a basic calendar. Version 2 will consider dates that are already booked on the property.
+		 Will need to implement the date range calendar via SLDS and apply a custom class on dates that already have bookings-->
+    
+    <!-- need to implement:
+		max guests for each unit (pull this from the listing data and pass to guests) lightning input
+		user friendly guest selection similar to evonify
+	 -->
+    <aura:attribute name="checkInDate" type="Date" default=""/>
+    <aura:attribute name="checkOutDate" type="Date" default=""/>
+    <aura:attribute name="guests" type="Integer" default="1"/>
+	
+    <lightning:input type="date" name="input1" label="Check In Date"/>
+    <lightning:input type="date" name="input2" label="Check Out Date"/>    
+	<lightning:input type="number" name="input3" label="Guests" max="16"/>    
+    
+</aura:component>

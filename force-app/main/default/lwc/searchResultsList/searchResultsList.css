@@ -1,0 +1,28 @@
+.search-results-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/*
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-height: 89vh;
+}
+*/
+.custom-map-container {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    top: 0;
+}
+
+.search-results-y-overflow {
+    overflow-y: scroll;
+    height: 92vh;
+}

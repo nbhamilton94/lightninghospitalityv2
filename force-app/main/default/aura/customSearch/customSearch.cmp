@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:searchInterface" controller="CustomSearchController">
+    <!-- Above, we specify the CustomSearchController to be the controller for the aura component. The logic is handled there.-->
+    <!--<aura:attribute name="searchText" type="String" default=""/>-->
+    <aura:attribute name="checkInDate" type="Date" default="" />
+    <aura:attribute name="checkOutDate" type="Date" default="" />
+    <div class="slds-form-element slds-lookup" data-select="single">
+        <div class="slds-form-element__control">
+            <div class="slds-input-has-icon slds-input-has-icon_right">
+                <lightning:input value="{!v.checkInDate}" class="datefield" type="date" label="Check-in Date" name="checkindate" labelClass="custom-label" required="true"/>
+                <lightning:input value="{!v.checkOutDate}" class="datefield" type="date" label="Check-out Date" name="checkoutedate" labelClass="custom-label" required="true"/>
+                <lightning:select class="datefield" name="city" label="City" labelClass="custom-label" required="true">
+                    <option value="1">Austin</option>
+                    <option value="2">Dallas</option>
+                    
+                </lightning:select>
+                <lightning:button class="searchbutton" label="Search" onclick="{! c.handleClick }" ></lightning:button>
+            </div>
+        </div>
+    </div>
+</aura:component>
