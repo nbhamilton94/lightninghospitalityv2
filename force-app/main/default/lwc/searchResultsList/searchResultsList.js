@@ -41,7 +41,11 @@ export default class SearchResultsList extends NavigationMixin(LightningElement)
             const checkIn = new Date(this.checkInDate);
             const checkOut = new Date(this.checkOutDate);
             const timeDiff = checkOut.getTime() - checkIn.getTime();
-            this.lengthOfStay = Number((timeDiff / (1000 * 3600 * 24)).toFixed(2));
+            const formatter = new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            this.lengthOfStay = formatter.format(timeDiff / (1000 * 3600 * 24));
             console.log('LENGTH OF STAY: ', this.lengthOfStay);
 
             this.availablePropertiesNotEmpty = this.availableProperties.length > 0;
@@ -112,8 +116,9 @@ export default class SearchResultsList extends NavigationMixin(LightningElement)
     }
 
     navigateToPropertyPage(event){
+        
         const recordId = event.detail;
-        sessionStorage.setItem('customSearch--recordId', recordId);
+        sessionStorage.setItem('customSearch--recordId', JSON.stringify(recordId));
 
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',

@@ -17,7 +17,12 @@ export default class SearchResultItem extends NavigationMixin(LightningElement) 
     @api lengthOfStay;
 
     connectedCallback() {
-        this.totalPrice = Number((this.nightlyRate * this.lengthOfStay).toFixed(2));
+        const formatter = new Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+        this.totalPrice = formatter.format(this.nightlyRate * this.lengthOfStay);
+        this.nightlyRate = formatter.format(this.nightlyRate);
     }
 
     handlePropertyClick() {
