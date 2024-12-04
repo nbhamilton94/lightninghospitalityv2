@@ -1,3 +1,153 @@
 <template>
-    <h1> HELLO</h1>
+    <!--
+    <aura:attribute name="selectedProperty" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="amenities" type="List"/>
+    <aura:attribute name="body" type="Aura.Component[]"/>
+    
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="markersTitle" type="String" />
+    <aura:attribute name="selectedMarkerValue" type="String" default="France1" />
+    <aura:attribute name="zoomLevel" type="Integer" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initProperty}"/>    
+    
+    <div class="slds-grid slds-gutters slds-wrap" style="">
+        <div class="slds-col slds-size_12-of-12">
+            <div>
+                <h1>{!v.selectedProperty.property.Nickname__c}</h1>                
+            </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <div>
+                <lightning:icon iconName="utility:checkin" size="small" /> Hyde Park Square - {!v.selectedProperty.address.City}
+            </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <c:displayReviewStars reviewScore="{!v.selectedProperty.averageReviewScore}"/> {!v.selectedProperty.numberOfReviews} Reviews
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning:layout>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href=""><h2>Overview</h2></a></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href="#gallery"><h2>Gallery</h2></a></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href="#location"><h2>Location</h2></a></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"><a href="#reviews"><h2>Reviews</h2></a></div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        <div class="slds-col slds-size_12-of-12 gray-background">
+            {!v.selectedProperty.property.Maximum_Guests__c} Guests | {!v.selectedProperty.property.Number_of_Bedrooms} Beds | {!v.selectedProperty.property.Number_of_Bathrooms__c} Baths
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12 gray-background">
+            Cancellation Policy: (Policy Goes Here)
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12">
+            {!v.selectedProperty.property.Property_Description__c}
+            <h2>Amenties</h2>
+        </div>
+   		
+        <aura:iteration items="{!v.amenities}" var="amenity">
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:icon class="lhds-default" iconName="utility:check" size="small" /> {! ' ' + amenity.Amenity_Link__c }
+            </div>       
+        </aura:iteration>
+        
+        
+        <div class="slds-col slds-size_12-of-12">
+            <h2 id="gallery" aura:id="div1">Gallery</h2>
+
+            <div class="slds-carousel">
+                <div class="slds-carousel__stage">
+                    
+                 
+                 <div aura:id="carousel2" class="slds-carousel__panels" style="transform:translateX(0%)">{!v.body}</div>
+
+                    
+                </div>
+                <div class="carousel__buttons">
+                    <lightning:button-icon icon-name="utility:chevronleft" alternative-text="Previous" title="Previous" onclick="{!c.handleLeftClick}"></lightning:button-icon>      	
+                    <lightning:button-icon icon-name="utility:chevronright" alternative-text="Next" title="Next" onclick="{!c.handleRightClick}"></lightning:button-icon>
+                </div>
+
+            </div>
+            
+            
+	
+        </div>
+
+        <div class="slds-col slds-size_12-of-12">
+            <h2 id="location">Location</h2>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning:map 
+                           mapMarkers="{! v.mapMarkers }"
+                           markersTitle="{!v.markersTitle}"
+                           selectedMarkerValue="{!v.selectedMarkerValue}"
+                           onmarkerselect="{!c.handleMarkerSelect}"
+                           zoomLevel="{!v.zoomLevel}" />
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <h2 id="reviews">Reviews ({!v.selectedProperty.numberOfReviews})</h2>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <c:propertyReviewScore averageReviewScore="{!v.selectedProperty.averageReviewScore}"/>
+        </div>        
+        
+        
+    </div>
+    <div class="slds-grid slds-gutters" style="">
+        <div class="slds-col slds-size_12-of-12">
+            <aura:iteration items="{!v.selectedProperty.property.Reviews__r}" var="review">
+                
+                <c:propertyReviewItem/>
+            </aura:iteration>
+        </div>     
+    </div>     
+    -->
+<!--
+            <div class="slds-carousel">
+                <div class="slds-carousel__stage">
+                    
+                 
+                 <div aura:id="carousel2" class="slds-carousel__panels" style="transform:translateX(0%)">{!v.body}</div>
+
+                    
+                </div>
+
+
+            </div>
+-->
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+    <template if:false={isLoading}>
+        <template if:true={carousel}>
+            <div class="carousel-wrapper">
+                <div class="slds-carousel__panels" style={panelStyle}>
+                    <template for:each={carousel} for:item="panel">
+                        <div key={panel.id} class="slds-carousel__panel">
+                            <template for:each={panel.items} for:item="img">
+                                <img key={img.id} src={img.url} style="width:33%;">
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="carousel__buttons">
+                <lightning-button-icon icon-name="utility:chevronleft" alternative-text="Previous" title="Previous" onclick={handleLeftClick}></lightning-button-icon>      	
+                <lightning-button-icon icon-name="utility:chevronright" alternative-text="Next" title="Next" onclick={handleRightClick}></lightning-button-icon>
+            </div>
+        </template>
+    </template>
+    
 </template>

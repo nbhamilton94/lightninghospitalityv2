@@ -54,6 +54,7 @@
             }            
         }
         
+        
         for(let i = 0; i < images.length; i++){
             
             newComponents.push(["img",{
